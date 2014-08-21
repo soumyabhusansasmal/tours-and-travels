@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:500,500italic' rel='stylesheet' type='text/css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+    <script src="jquery1.js"></script>
+ 
+    <script type="text/javascript">
+
+        //-----------------------------------
+        //  jQuery & jQueryRotate functions 
+        //----------------------------------
+
+        $(document).ready(function () {
+
+            $('#welcome').on('click', function () {
+
+                $('#wlogo').hide(function () {
+
+                    window.location.href = 'sts.php';
+
+                });
+
+            });
+
+
+            $('#welcome').on('mouseover', function () {
+
+                var _currentAngle;
+
+                _currentAngle = $('#wlogo').getRotateAngle();
+
+                if ((_currentAngle == '0') || (_currentAngle == '')) {
+
+                        $('#wlogo').rotate({
+
+                            animateTo: 360,
+
+                            callback: function () {
+
+                                $('#wlogo').rotate({
+                                    angle: 0
+                                });
+
+                            }
+                        });
+
+                };
+
+            });
+
+
+        });
+    </script>
+
+<style type="text/css">
+
+    body {
+        background-color: #000000;
+        background-image: url(widescreen-background.jpg); 
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center; 
+        font-family: 'Ubuntu', Arial, sans-serif;
+        font-size: 1em;
+    }
+ 
+    #welcome {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 999;
+        color: #fff;
+        background: #ffffff;
+        padding: 60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: -200px 0 0 -200px;
+        text-align: center;
+        border: inset 44px #C0C0C0;
+        cursor: pointer;
+    }
+
+    #welcome #wlogo {
+        position: absolute;    
+        top: 89px;
+        left: 10px;
+        border: 0px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div id="welcome">
+    <img id="wlogo" src="stslogo.png" />
+</div>
+
+</body>
+</html>
